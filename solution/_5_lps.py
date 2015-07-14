@@ -2,6 +2,7 @@
 Created on 2015/7/1
 
 @author: dazhang
+Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.
 '''
 class Solution:
     # @param {string} s
