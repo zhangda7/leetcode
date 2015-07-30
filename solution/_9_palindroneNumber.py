@@ -29,8 +29,11 @@ Attention:
 
 -123321 -> False, i.e negtive number always is False
 
+Upper is too complicated, just reverse the number, then compare it with the original one.
+Attention: In python, this is OK, but in c, reverse the number may exceed INT_MAX, so this may not be the best way
+
 '''
-class Solution:
+class Solution2:
     # @param {integer} x
     # @return {boolean}
     def isPalindrome(self, x):
@@ -49,8 +52,25 @@ class Solution:
             if first != last:
                 return False
         return True
+    
+class Solution:
+    # @param {integer} x
+    # @return {boolean}
+    def isPalindrome(self, x):
+        if x < 0 :
+            return False
+        num = x
+        length = 0
+        rev = 0
+        while (num != 0):
+            rev = num % 10 + rev * 10
+            num /= 10
+        if rev == x:
+            return True
+        else:
+            return False
         
 if __name__ == '__main__':
     s = Solution()
-    print(s.isPalindrome(-11222211))
+    print(s.isPalindrome(112221211))
     pass
