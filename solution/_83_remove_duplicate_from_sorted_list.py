@@ -10,6 +10,10 @@ Given a sorted linked list, delete all duplicates such that each element appear 
 For example,
 Given 1->1->2, return 1->2.
 Given 1->1->2->3->3, return 1->2->3.
+
+Better Solution:
+Each time, we compare val and cur->next.val, we can not use pre and prepre pointer.
+
 '''
 
 # Definition for singly-linked list.
