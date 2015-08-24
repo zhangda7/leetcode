@@ -17,6 +17,15 @@ class TreeNode:
         self.left = None
         self.right = None
 
+class Solution3:
+    # @param {TreeNode} root
+    # @return {integer}
+    def maxDepth(self, root):
+        if root == None:
+            return 0
+        left = self.maxDepth(self.left)
+        right = self.maxDepth(self.right)
+        return max(left, right) + 1
 '''
 Recurution can work and pass, but is too slow.
 '''
@@ -40,12 +49,19 @@ class Solution2:
             self.travel(root.left, length + 1)
         if root.right != None:
             self.travel(root.right, length + 1)
+            
+            
         
 class Solution:
     def __init__(self):
         self.maxLength = 0
     # @param {TreeNode} root
     # @return {integer}
+    '''
+    这里还是写的太麻烦了，用广度优先搜索比较简单，就是记录广度优先搜索的层数
+    两个变量：1.该层剩余的节点数curNum, 2.下一层的节点数nextNum
+    所以一个队列，访问该队列中所以节点的左右节点，再加入队列，同时没访问一个，curNum-1，nextNum也相应增加，这样curNum == 0时该层就访问完了，此时深度+1，再访问该队列，访问下一层，置curNum = nextNum
+    '''
     def maxDepth(self, root):
         if root == None:
             return 0
